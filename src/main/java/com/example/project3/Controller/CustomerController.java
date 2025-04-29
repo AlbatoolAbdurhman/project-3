@@ -2,6 +2,7 @@ package com.example.project3.Controller;
 
 
 import com.example.project3.Model.Customer;
+import com.example.project3.Model.CustomerDTO_in;
 import com.example.project3.Model.User;
 import com.example.project3.Service.AuthService;
 import com.example.project3.Service.CustomerService;
@@ -23,6 +24,12 @@ public class CustomerController {
     private final CustomerService customerService;
 
 
+    @PostMapping("/register-customer")
+    public ResponseEntity registerCustomer(@RequestBody @Valid CustomerDTO_in dto) {
+        customerService.registerCustomer(dto);
+        return ResponseEntity.ok("Customer registered");
+    }
+
     @PostMapping("/add")
     public ResponseEntity addCustomer(@AuthenticationPrincipal User user, @RequestBody @Valid Customer customer) {
         customerService.addCustomer(user.getId(), customer);
@@ -36,7 +43,7 @@ public class CustomerController {
         return ResponseEntity.ok(customer);
     }
 
-    //for Employee
+
     @GetMapping("/all")
     public ResponseEntity getAllCustomers() {
         List<Customer> customers = customerService.getAllCustomers();

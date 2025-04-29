@@ -1,5 +1,6 @@
 package com.example.project3.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -32,6 +33,7 @@ public class Account {
     private Boolean isActive = false;
 
     @ManyToOne
+    @JsonIgnore
     private Customer customer;
 
 }

@@ -2,6 +2,7 @@ package com.example.project3.Controller;
 
 
 import com.example.project3.Model.Employee;
+import com.example.project3.Model.EmployeeDTO_in;
 import com.example.project3.Model.User;
 import com.example.project3.Service.EmployeeService;
 import jakarta.validation.Valid;
@@ -21,6 +22,12 @@ public class EmployeeController {
 
     private final EmployeeService employeeService;
 
+
+    @PostMapping("/register-employee")
+    public ResponseEntity registerEmployee(@RequestBody @Valid EmployeeDTO_in dto) {
+        employeeService.registerEmployee(dto);
+        return ResponseEntity.ok("Employee registered");
+    }
 
     @PostMapping("/add")
     public ResponseEntity addEmployee(@AuthenticationPrincipal User user, @RequestBody @Valid Employee employee) {

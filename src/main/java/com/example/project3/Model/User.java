@@ -51,11 +51,10 @@ public class User implements UserDetails {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Employee employee;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Account> accounts;
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    private List<Account> accounts;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Todo> todos;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

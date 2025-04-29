@@ -19,13 +19,13 @@ public class AuthService {
         return authRepository.findAll();
     }
 
-    public void registerUser(User user) {
-        user.setRole("EMPLOYEE");//اغير كل مره
-
-        String hashedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
-        user.setPassword(hashedPassword);
-        authRepository.save(user);
-    }
+//    public void registerUser(User user) {
+//        user.setRole("EMPLOYEE");//اغير كل مره
+//
+//        String hashedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
+//        user.setPassword(hashedPassword);
+//        authRepository.save(user);
+//    }
 
     public void updateUser(Integer id, User user) {
         User u = authRepository.findUserById(id);

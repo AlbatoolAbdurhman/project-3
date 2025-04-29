@@ -27,12 +27,12 @@ public class AuthController {
         return ResponseEntity.ok(users);
     }
 
-    //public endpoint
-    @PostMapping("/register")
-    public ResponseEntity registerUser(@RequestBody @Valid User user) {
-        authService.registerUser(user);
-        return ResponseEntity.ok("User registered successfully");
-    }
+//    //public endpoint
+//    @PostMapping("/register")
+//    public ResponseEntity registerUser(@RequestBody @Valid User user) {
+//        authService.registerUser(user);
+//        return ResponseEntity.ok("User registered successfully");
+//    }
 
     //authenticated user
     @PutMapping("/update")
